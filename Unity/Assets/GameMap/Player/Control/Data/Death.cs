@@ -14,6 +14,7 @@ public class Death : MonoBehaviour
         PlayerDatas.PlayerHP= PlayerDatas.PlayerMaxHealth;
         ItemPlacement.instance.Resurect();
         MapControl.MapIsEnabled = true;
+        SpawnReferences.Respawnenemy = true;
         this.gameObject.SetActive(false);
     }
 }

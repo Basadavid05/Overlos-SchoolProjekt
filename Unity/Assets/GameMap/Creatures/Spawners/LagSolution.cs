@@ -4,16 +4,33 @@ using UnityEngine.AI;
 public class LagSolution : MonoBehaviour
 {
     private MonoBehaviour[] scripts;
+    private LayerMask layerMask;
+    private bool mapisenabled;
 
     private void Start()
     {
         scripts = transform.GetComponents<MonoBehaviour>();
-        LayerMask layerMask = LayerMask.GetMask("Detection");
+        layerMask = LayerMask.GetMask("Detection");
+        Invoke("Check", 3f);
+    }
+    private void Update()
+    {
+        if (MapControl.MapIsEnabled)
+        {
+            mapisenabled = true;
+        }
+        if (!MapControl.MapIsEnabled && mapisenabled)
+        {
+            Check();
+        }
+    }
+
+    private void Check()
+    {
         Collider[] nearbyColliders = Physics.OverlapSphere(transform.position, 0.05f, layerMask);
         // Check if there is at least one collider nearby
         if (nearbyColliders.Length <= 0)
         { OverDisable(); }
-
     }
 
     public void OverDisable()
@@ -47,6 +64,7 @@ public class LagSolution : MonoBehaviour
 
     public void OverEnable()
     {
+        Debug.Log(gameObject.name);
             if (transform.TryGetComponent<MeshRenderer>(out MeshRenderer rg))
             {
                 rg.enabled = true;

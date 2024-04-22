@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    /*
     [Header("Publics")]
     public GameObject[] Objects;
     public int MaxSpawn = 500;
@@ -120,5 +121,5 @@ public class NewBehaviourScript : MonoBehaviour
         
     }
 
-
+    */
 }

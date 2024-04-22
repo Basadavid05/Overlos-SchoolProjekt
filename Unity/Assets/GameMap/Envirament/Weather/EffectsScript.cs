@@ -117,15 +117,7 @@ public class EffectsScript : MonoBehaviour
 
     private void RainDefault()
     {
-        if (RainObj != null)
-        {
-            RainObj.SetActive(true);
-            Debug.Log(RainObj.activeSelf);
-        }
-        else
-        {
-            Debug.LogError("RainObj is null!");
-        }
+        RainObj.SetActive(true);
         RainEmission.rateOverTime = 140;
         RainRain = true;
     }

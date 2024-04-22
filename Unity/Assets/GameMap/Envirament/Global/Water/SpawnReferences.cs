@@ -2,37 +2,38 @@ using UnityEngine;
 
 public class SpawnReferences : MonoBehaviour
 {
-    [Header("Ground")]
-     public GameObject Ocean;
-     public Terrain terrain;
-     [HideInInspector]public Bounds terrainBounds;
-     [HideInInspector]public Bounds Oceanbounds;
-
-     [Header("Ocean")]
-    [HideInInspector] public LayerMask Water;
     [HideInInspector] public LayerMask Ground;
 
     private float MinScale = 0.5f;
     private float MaxScale = 2.2f;
 
-    private bool PlayerIsNoMoreAlive;
+    public static bool Respawnenemy;
 
     private void Start()
     {
+        Respawnenemy=false;
         Ground = LayerMask.GetMask("Ground");
-        Water = LayerMask.GetMask("Water");
-        PlayerIsNoMoreAlive = false;
     }
 
     private void Update()
     {
-        if(PlayerDatas.Death)
+        if(MapControl.MapIsEnabled)
         {
             for (int i = 0; i < transform.childCount; i++)
             {
-                transform.GetChild(i).gameObject.SetActive(false);
+                transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
+
+        if (Respawnenemy)
+        {
+            Invoke("Enemy", 2f);
+        }
+    }
+
+    private void Enemy()
+    {
+        Respawnenemy = false;
     }
 
     public void GameObjectScale(GameObject gameObject)

@@ -24,14 +24,16 @@ public class MapControl : MonoBehaviour
 
     [Header("Map+")]
     public static Transform PickUpMap;
+    private Vector3 PlayerRespawnLocation;
 
-    public Rigidbody rb;
+    private Rigidbody rb;
     private int spawncount;
 
     // Start is called before the first frame update
     private void Start()
     {
         rb = player.GetComponent<Rigidbody>();
+        PlayerRespawnLocation= spawnmanager.position + new Vector3(0, 2500, 0);
         mapactive();
     }
 
@@ -53,7 +55,7 @@ public class MapControl : MonoBehaviour
     {
         maps.SetActive(true);
         MapIsEnabled = true;
-        player.transform.position = spawnmanager.position;
+        player.transform.position = PlayerRespawnLocation;
         rb.isKinematic= true;
         Time.timeScale = 0f;
         Main.main.Lock(true);

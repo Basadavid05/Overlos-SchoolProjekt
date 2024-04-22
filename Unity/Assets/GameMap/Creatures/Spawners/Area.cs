@@ -13,7 +13,7 @@ public class Area : MonoBehaviour
         Coll = GetComponent<Collider>();
         count = transform.childCount;
         layerMask = LayerMask.NameToLayer("Detection");
-        //ChildrenChange(false);
+
         Invoke("DelayedStart", 0.1f);
     }
 

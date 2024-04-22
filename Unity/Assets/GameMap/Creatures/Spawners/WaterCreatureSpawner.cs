@@ -7,7 +7,7 @@ using System.IO;
 using UnityEngine.Rendering;
 
 public class WaterCreatureSpawner : MonoBehaviour
-{
+{/*
     public GameObject[] enemyPrefab;
     private float spawnRate = 5f;
     public int spawnCount = 0;
@@ -139,5 +139,5 @@ public class WaterCreatureSpawner : MonoBehaviour
         return true;
     }
 
-
+    */
 }

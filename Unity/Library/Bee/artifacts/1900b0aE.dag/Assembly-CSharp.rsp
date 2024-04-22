@@ -445,6 +445,7 @@
 "Assets/GameMap/Envirament/Global/Water/Waterbehavior.cs"
 "Assets/GameMap/Envirament/Ground/TreeGenerato.cs"
 "Assets/GameMap/Envirament/SpawnEnviramentObj.cs"
+"Assets/GameMap/Envirament/Villages/Gameobjects.cs"
 "Assets/GameMap/Envirament/Weather/EffectsScript.cs"
 "Assets/GameMap/Envirament/Weather/FogScript.cs"
 "Assets/GameMap/Envirament/Weather/LightningColor.cs"

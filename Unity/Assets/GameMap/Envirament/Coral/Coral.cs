@@ -10,6 +10,7 @@ using UnityEngine.TerrainUtils;
 
 public class Coral : MonoBehaviour
 {
+    /*
     private float mapWith;
     private float MapHeight;
 
@@ -75,10 +76,8 @@ public class Coral : MonoBehaviour
         SpawnReferences = transform.parent.GetComponent<SpawnReferences>();
         GroundMask = SpawnReferences.Ground;
         OceanMask = SpawnReferences.Water;
-        /*
         float oceanTerrainHeightDifference = waterReferences.Oceanbounds.max.y - waterReferences.terrainBounds.min.y;
         MapHeight = Mathf.RoundToInt(oceanTerrainHeightDifference);
-        */
 
         // Calculate map dimensions based on ocean and terrain bounds
         Vector3 TerrainMax = SpawnReferences.terrainBounds.max;
@@ -95,4 +94,6 @@ public class Coral : MonoBehaviour
         MapHeight=TerrainMax.z;
 
     }
+
+    */
 }
