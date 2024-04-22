@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Inventory-Items
+  - Water
+  - Toolbar-Items
+  - Gun
+  - Inventory
+  - Mission
+  - Coral
+  - Enemy
+  - Lightning
+  - Creatures
+  - Object
+  - Soul
+  - Island1
+  - Envirament
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Ground
+  - Items
+  - Envirament
+  - Enemy
+  - Test
+  - Detection
+  - Weather
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
