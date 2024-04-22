@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class LagSolution : MonoBehaviour
 {
-   private MonoBehaviour[] scripts;
-    private bool enable;
+    private MonoBehaviour[] scripts;
+
     private void Start()
     {
         scripts = transform.GetComponents<MonoBehaviour>();
@@ -17,10 +18,6 @@ public class LagSolution : MonoBehaviour
 
     public void OverDisable()
     {
-        if (enable)
-        {
-            enable=false;
-        }
         foreach (var script in scripts)
         {
             // Skip the DisableScriptsForGameObject script itself
@@ -30,7 +27,7 @@ public class LagSolution : MonoBehaviour
                 continue;
             script.enabled = false;
         }
-        for (int i = 0; i < transform.childCount; i++) 
+        for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
@@ -42,12 +39,14 @@ public class LagSolution : MonoBehaviour
         {
             rb.isKinematic = true;
         }
+        if(transform.TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
+        {
+            agent.enabled = false;
+        }
     }
 
     public void OverEnable()
     {
-        if (!enable)
-        {
             if (transform.TryGetComponent<MeshRenderer>(out MeshRenderer rg))
             {
                 rg.enabled = true;
@@ -64,10 +63,12 @@ public class LagSolution : MonoBehaviour
             {
                 transform.GetChild(i).gameObject.SetActive(true);
             }
-            enable=true;
-        }
-        
+            if (transform.TryGetComponent<NavMeshAgent>(out NavMeshAgent agent)){
+                agent.enabled = true;
+            }
     }
+
+    
 
 
 }

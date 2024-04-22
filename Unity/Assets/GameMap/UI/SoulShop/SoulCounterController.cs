@@ -14,6 +14,7 @@ public class SoulCounterController : MonoBehaviour
     private TextMeshProUGUI text;
     public TextMeshProUGUI SoulShopCounter;
     private float fadeDuration = 5.0f;
+    private int spawn;
 
     [Header("Count")]
     private bool activeagain=false;
@@ -23,6 +24,11 @@ public class SoulCounterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (spawn == 0)
+        {
+            SoulCount = 0;
+            spawn = 1;
+        }
         SoulCounter = transform.GetChild(0).gameObject;
         text= SoulCounter.transform.Find("Count").GetComponent<TextMeshProUGUI>();
         SoulCounter.SetActive(false);

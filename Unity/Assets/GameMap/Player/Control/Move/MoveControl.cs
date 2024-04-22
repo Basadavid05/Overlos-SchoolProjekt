@@ -589,11 +589,17 @@ public class MoveControl : MonoBehaviour
             LegMovementAnimation = animation;
             if (hunt)
             {
-                Animator.Play(animation, layer);
+                if (Animator != null)
+                {
+                    Animator.Play(animation, layer);
+                }
             }
             else
             {
-                Animator.CrossFade(animation, crossfade, layer);
+                if(Animator != null)
+                {
+                    Animator.CrossFade(animation, crossfade, layer);
+                }
             }
             PreviusAnimation= animation;
         }

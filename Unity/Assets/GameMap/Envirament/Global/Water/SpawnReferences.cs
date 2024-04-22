@@ -15,12 +15,25 @@ public class SpawnReferences : MonoBehaviour
     private float MinScale = 0.5f;
     private float MaxScale = 2.2f;
 
+    private bool PlayerIsNoMoreAlive;
+
     private void Start()
     {
         Ground = LayerMask.GetMask("Ground");
         Water = LayerMask.GetMask("Water");
+        PlayerIsNoMoreAlive = false;
     }
 
+    private void Update()
+    {
+        if(PlayerDatas.Death)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+    }
 
     public void GameObjectScale(GameObject gameObject)
     {

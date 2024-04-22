@@ -511,6 +511,7 @@
 "Assets/network of paths/FirstPersion AIO Pack/FirstPersonAIO/FirstPersonAIO.cs"
 "Assets/Packages/TextMesh Pro/Empty.cs"
 "Assets/Scene/Menu/MainMenu.cs"
+"Assets/Scene/Menu/Option.cs"
 "Assets/Terrain/map/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Scripts/Antialiasing.cs"
 "Assets/Terrain/map/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Scripts/Bloom.cs"
 "Assets/Terrain/map/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Scripts/BloomAndFlares.cs"

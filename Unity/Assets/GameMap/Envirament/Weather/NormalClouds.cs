@@ -169,7 +169,6 @@ public class NormalClouds : MonoBehaviour
             StormEnd = Random.Range(10f, 20f);
             Rain = true;
             EffectsScripts.JustRain();
-            Debug.Log("Just Rain");
         }
         else if (StormType <= 5)
         {
@@ -178,7 +177,6 @@ public class NormalClouds : MonoBehaviour
             StormEnd = Random.Range(10f, 20f);
             Thunder = true;
             EffectsScripts.JustThunder();
-            Debug.Log("Just Thunder");
         }
         else if ((StormType >= 13) && (StormType < 17))
         {
@@ -188,7 +186,6 @@ public class NormalClouds : MonoBehaviour
             Rain = true;
             Thunder = true;
             Lightning= true;
-            Debug.Log("Thunderstorm");
             EffectsScripts.Thunderstorm();
             //Thunderstorm
         }
@@ -201,7 +198,6 @@ public class NormalClouds : MonoBehaviour
             Thunder = true;
             Lightning = true;
             //StormAndThunder
-            Debug.Log("A really good Storm");
             EffectsScripts.StormAndThunder();
         }
         float Storm=StormStart+StormTime+StormEnd;

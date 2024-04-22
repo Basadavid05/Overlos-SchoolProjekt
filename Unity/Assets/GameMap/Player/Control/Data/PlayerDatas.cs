@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.Collections.LowLevel.Unsafe;
+using UnityEditor.Rendering;
 
 public class PlayerDatas : MonoBehaviour
 {
@@ -14,9 +16,9 @@ public class PlayerDatas : MonoBehaviour
     public Slider sliders;
     public GameObject Resurect;
 
-
-    public float minTime = 60*8f;
-    public float maxTime = 60*10f;
+    private float timer;
+    private float minTime;
+    private float maxTime;
 
     [Header("Lerp-Health")]
     public float chipspeed = 10f;
@@ -28,6 +30,8 @@ public class PlayerDatas : MonoBehaviour
         sliders.maxValue= PlayerMaxHealth;
         PlayerCurrentHealth = PlayerMaxHealth;
         PlayerHP = PlayerMaxHealth;
+        minTime= 60;
+        maxTime= 120;
         StartCoroutine(AddSouls());
 
     }
@@ -94,16 +98,20 @@ public class PlayerDatas : MonoBehaviour
         sliders.value = targetHealth; // Ensure we reach the exact target value
     }
 
-
-    IEnumerator AddSouls()
+    private IEnumerator AddSouls()
     {
         while (true)
         {
-            // Wait for a random time between minTime and maxTime
-            float waitTime = Random.Range(minTime, maxTime);
-            yield return new WaitForSeconds(waitTime);
-            SoulCounterController.SoulCount = SoulCounterController.SoulCount + 50;
+            float time = Timer();
+            yield return new WaitForSecondsRealtime(time);
+            // Reset timer after 60 seconds
+            SoulCounterController.SoulCount += 50;
         }
+    }
+
+    private float Timer()
+    {
+        return Random.Range(minTime, maxTime);
     }
 
     /*
