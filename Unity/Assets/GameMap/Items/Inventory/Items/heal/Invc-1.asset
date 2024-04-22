@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8936618e9605f74791c43ac634d795c, type: 3}
+  m_Name: Invc-1
+  m_EditorClassIdentifier: 
+  ItemName: '1 Minutte invincibility '
+  InventoryPlacement: 1
+  stackable: 1
+  Icon: {fileID: 21300000, guid: c41c4b5f4af35394ba8dcb2b302f9472, type: 3}
+  Prefab: {fileID: 919132149155446097, guid: 1011937693c12744ea078a91a6ee07ab, type: 3}
+  MaxItem: 1
+  DropLocation: {fileID: 0}
+  Toolbar: 0
+  Toolbarnumber: 0
+  quantity: 1
+  SoulPrice: 700
+  Code: 69696-96969-69696-9696
+  potion: 1
+  heal: 1

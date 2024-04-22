@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class Death : MonoBehaviour
+{
+    public PlayerDatas data;
+
+    public void Resurrect()
+    {
+        Time.timeScale = 1f;
+        Main.main.Lock(false);
+        PlayerDatas.Death = false;
+        data.sliders.value = PlayerDatas.PlayerMaxHealth;
+        data.PlayerCurrentHealth = PlayerDatas.PlayerMaxHealth;
+        PlayerDatas.PlayerHP= PlayerDatas.PlayerMaxHealth;
+        ItemPlacement.instance.Resurect();
+        MapControl.MapIsEnabled = true;
+        this.gameObject.SetActive(false);
+    }
+}

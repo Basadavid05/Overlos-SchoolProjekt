@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d028164c4d256da40ae318213c3b3972, type: 3}
+  m_Name: BlackWolf
+  m_EditorClassIdentifier: 
+  Name: Black Wolf
+  Heal: 300
+  SoulPrice: 100
+  SeeAngle: 100
+  SeeDistance: 50
+  SearchChance: 0.625
+  AttackCount: 2
+  Damages: 6400000050000000
+  AttackDistance: 7
+  MinDistance: 4
+  CanThreath: 1
+  TwoLayer: 0
+  knowbacky: 3
+  knowbackxz: 10
+  WalkSpeed: 5
+  SearchSpeed: 8
+  RunSpeed: 10

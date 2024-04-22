@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d028164c4d256da40ae318213c3b3972, type: 3}
+  m_Name: KingBasilisk
+  m_EditorClassIdentifier: 
+  Name: KingBasilisk
+  Heal: 2400
+  SoulPrice: 500
+  SeeAngle: 340
+  SeeDistance: 100
+  SearchChance: 0.765
+  AttackCount: 1
+  Damages: f4010000
+  AttackDistance: 15
+  MinDistance: 10
+  CanThreath: 0
+  TwoLayer: 0
+  knowbacky: 5
+  knowbackxz: 10
+  WalkSpeed: 8
+  SearchSpeed: 10
+  RunSpeed: 12

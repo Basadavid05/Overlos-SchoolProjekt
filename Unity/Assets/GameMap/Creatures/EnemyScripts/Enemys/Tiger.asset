@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d028164c4d256da40ae318213c3b3972, type: 3}
+  m_Name: Tiger
+  m_EditorClassIdentifier: 
+  Name: Tiger
+  Heal: 320
+  SoulPrice: 160
+  SeeAngle: 150
+  SeeDistance: 60
+  SearchChance: 0.73
+  AttackCount: 1
+  Damages: c8000000
+  AttackDistance: 10
+  MinDistance: 3
+  CanThreath: 0
+  TwoLayer: 0
+  knowbacky: 0
+  knowbackxz: 0
+  WalkSpeed: 6
+  SearchSpeed: 7
+  RunSpeed: 9

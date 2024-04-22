@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8936618e9605f74791c43ac634d795c, type: 3}
+  m_Name: Cofre
+  m_EditorClassIdentifier: 
+  ItemName: Cofre
+  InventoryPlacement: 1
+  stackable: 0
+  Icon: {fileID: 21300000, guid: d7d75982d8898524ab9f30c5cecf5f63, type: 3}
+  Prefab: {fileID: 3448478257193038089, guid: 87393bc353c643e4da67338bc932b1d4, type: 3}
+  MaxItem: 1
+  DropLocation: {fileID: 0}
+  Toolbar: 0
+  Toolbarnumber: 0
+  quantity: 1
+  SoulPrice: 0
+  Code: b

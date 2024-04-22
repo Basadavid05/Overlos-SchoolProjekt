@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d028164c4d256da40ae318213c3b3972, type: 3}
+  m_Name: Megalodon
+  m_EditorClassIdentifier: 
+  Name: Megaldon
+  Heal: 800
+  SoulPrice: 200
+  SeeAngle: 240
+  SeeDistance: 90
+  SearchChance: 0.796
+  AttackCount: 2
+  Damages: 720100002c010000
+  AttackDistance: 11
+  MinDistance: 4
+  CanThreath: 0
+  TwoLayer: 0
+  knowbacky: 0
+  knowbackxz: 0
+  WalkSpeed: 0
+  SearchSpeed: 0
+  RunSpeed: 0

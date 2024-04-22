@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: cf408264d8253fb4b837f2671b3a6bb4
+timeCreated: 1513598226
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CB_GiantScorpion
+    100004: Spider
+    100006: SpiderBone001
+    100008: SpiderBone001Bone001
+    100010: SpiderBone001Bone001Bone001
+    100012: SpiderBone001Bone001Bone001Bone001
+    100014: SpiderBone001Bone001Bone001Bone001Bone001
+    100016: SpiderBone001Bone001Bone001Bone001Bone001Bone001
+    100018: SpiderBone001Bone001Bone001Bone001Bone001Bone001Bone001
+    100020: SpiderBone001Bone001Bone001Bone001Bone001Bone001Bone001Bone001
+    100022: SpiderBone001Bone001Bone001Bone001Bone001Bone001Bone001Bone001Bone001
+    100024: SpiderHub
+    100026: SpiderHubBone002
+    100028: SpiderHubBone002Bone001
+    100030: SpiderHubBone002Bone002
+    100032: SpiderHubBone002Bone002Bone001
+    100034: SpiderHubBone002Bone002Bone001 1
+    100036: SpiderHubBone002Bone003
+    100038: SpiderHubBone002Bone004
+    100040: SpiderHubBone002Bone004Bone001
+    100042: SpiderHubBone002Bone004Bone001 1
+    100044: SpiderHubBone002Bone004Bone001Bone001
+    100046: SpiderHubBone002Bone004Bone001Bone001 1
+    100048: SpiderHubBone002Bone004Bone001Bone001Bone001
+    100050: SpiderHubBone002Bone004Bone001Bone001Bone001 1
+    100052: SpiderHubBone002Bone004Bone001Bone001Bone001Bone001
+    100054: SpiderHubBone002Bone004Bone001Bone001Bone001Bone001 1
+    100056: SpiderHubBone002Bone005
+    100058: SpiderLLeg11
+    100060: SpiderLLeg12
+    100062: SpiderLLeg13
+    100064: SpiderLLeg14
+    100066: SpiderLLeg15
+    100068: SpiderLLeg16
+    100070: SpiderLLeg21
+    100072: SpiderLLeg22
+    100074: SpiderLLeg23
+    100076: SpiderLLeg24
+    100078: SpiderLLeg25
+    100080: SpiderLLeg26
+    100082: SpiderLLeg31
+    100084: SpiderLLeg32
+    100086: SpiderLLeg33
+    100088: SpiderLLeg34
+    100090: SpiderLLeg35
+    100092: SpiderLLeg36
+    100094: SpiderLLeg41
+    100096: SpiderLLeg42
+    100098: SpiderLLeg43
+    100100: SpiderLLeg44
+    100102: SpiderLLeg45
+    100104: SpiderLLeg46
+    100106: SpiderRLeg11
+    100108: SpiderRLeg12
+    100110: SpiderRLeg13
+    100112: SpiderRLeg14
+    100114: SpiderRLeg15
+    100116: SpiderRLeg16
+    100118: SpiderRLeg21
+    100120: SpiderRLeg22
+    100122: SpiderRLeg23
+    100124: SpiderRLeg24
+    100126: SpiderRLeg25
+    100128: SpiderRLeg26
+    100130: SpiderRLeg31
+    100132: SpiderRLeg32
+    100134: SpiderRLeg33
+    100136: SpiderRLeg34
+    100138: SpiderRLeg35
+    100140: SpiderRLeg36
+    100142: SpiderRLeg41
+    100144: SpiderRLeg42
+    100146: SpiderRLeg43
+    100148: SpiderRLeg44
+    100150: SpiderRLeg45
+    100152: SpiderRLeg46
+    400000: //RootNode
+    400002: CB_GiantScorpion
+    400004: Spider
+    400006: SpiderBone001
+    400008: SpiderBone001Bone001
+    400010: SpiderBone001Bone001Bone001
+    400012: SpiderBone001Bone001Bone001Bone001
+    400014: SpiderBone001Bone001Bone001Bone001Bone001
+    400016: SpiderBone001Bone001Bone001Bone001Bone001Bone001
+    400018: SpiderBone001Bone001Bone001Bone001Bone001Bone001Bone001
+    400020: SpiderBone001Bone001Bone001Bone001Bone001Bone001Bone001Bone001
+    400022: SpiderBone001Bone001Bone001Bone001Bone001Bone001Bone001Bone001Bone001
+    400024: SpiderHub
+    400026: SpiderHubBone002
+    400028: SpiderHubBone002Bone001
+    400030: SpiderHubBone002Bone002
+    400032: SpiderHubBone002Bone002Bone001
+    400034: SpiderHubBone002Bone002Bone001 1
+    400036: SpiderHubBone002Bone003
+    400038: SpiderHubBone002Bone004
+    400040: SpiderHubBone002Bone004Bone001
+    400042: SpiderHubBone002Bone004Bone001 1
+    400044: SpiderHubBone002Bone004Bone001Bone001
+    400046: SpiderHubBone002Bone004Bone001Bone001 1
+    400048: SpiderHubBone002Bone004Bone001Bone001Bone001
+    400050: SpiderHubBone002Bone004Bone001Bone001Bone001 1
+    400052: SpiderHubBone002Bone004Bone001Bone001Bone001Bone001
+    400054: SpiderHubBone002Bone004Bone001Bone001Bone001Bone001 1
+    400056: SpiderHubBone002Bone005
+    400058: SpiderLLeg11
+    400060: SpiderLLeg12
+    400062: SpiderLLeg13
+    400064: SpiderLLeg14
+    400066: SpiderLLeg15
+    400068: SpiderLLeg16
+    400070: SpiderLLeg21
+    400072: SpiderLLeg22
+    400074: SpiderLLeg23
+    400076: SpiderLLeg24
+    400078: SpiderLLeg25
+    400080: SpiderLLeg26
+    400082: SpiderLLeg31
+    400084: SpiderLLeg32
+    400086: SpiderLLeg33
+    400088: SpiderLLeg34
+    400090: SpiderLLeg35
+    400092: SpiderLLeg36
+    400094: SpiderLLeg41
+    400096: SpiderLLeg42
+    400098: SpiderLLeg43
+    400100: SpiderLLeg44
+    400102: SpiderLLeg45
+    400104: SpiderLLeg46
+    400106: SpiderRLeg11
+    400108: SpiderRLeg12
+    400110: SpiderRLeg13
+    400112: SpiderRLeg14
+    400114: SpiderRLeg15
+    400116: SpiderRLeg16
+    400118: SpiderRLeg21
+    400120: SpiderRLeg22
+    400122: SpiderRLeg23
+    400124: SpiderRLeg24
+    400126: SpiderRLeg25
+    400128: SpiderRLeg26
+    400130: SpiderRLeg31
+    400132: SpiderRLeg32
+    400134: SpiderRLeg33
+    400136: SpiderRLeg34
+    400138: SpiderRLeg35
+    400140: SpiderRLeg36
+    400142: SpiderRLeg41
+    400144: SpiderRLeg42
+    400146: SpiderRLeg43
+    400148: SpiderRLeg44
+    400150: SpiderRLeg45
+    400152: SpiderRLeg46
+    4300000: CB_GiantScorpion
+    7400000: CB_GiantScorpion_walk
+    7400002: CB_GiantScorpion_run
+    7400004: CB_GiantScorpion_stand
+    7400006: CB_GiantScorpion_idle(roar)
+    7400008: CB_GiantScorpion_attack1
+    7400010: CB_GiantScorpion_attack2
+    7400012: CB_GiantScorpion_attack3
+    7400014: CB_GiantScorpion_hit1
+    7400016: CB_GiantScorpion_hit2
+    7400018: CB_GiantScorpion_death
+    7400020: CB_GiantScorpion_walk_root_motion
+    7400022: CB_GiantScorpion_run_root_motion
+    9500000: //RootNode
+    13700000: CB_GiantScorpion
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CB_GiantScorpion_walk
+      takeName: 
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_run
+      takeName: 
+      firstFrame: 51
+      lastFrame: 101
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_stand
+      takeName: 
+      firstFrame: 151
+      lastFrame: 196
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_idle(roar)
+      takeName: 
+      firstFrame: 242
+      lastFrame: 342
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_attack1
+      takeName: 
+      firstFrame: 343
+      lastFrame: 388
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_attack2
+      takeName: 
+      firstFrame: 389
+      lastFrame: 434
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_attack3
+      takeName: 
+      firstFrame: 435
+      lastFrame: 480
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_hit1
+      takeName: 
+      firstFrame: 481
+      lastFrame: 501
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_hit2
+      takeName: 
+      firstFrame: 502
+      lastFrame: 522
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_death
+      takeName: 
+      firstFrame: 523
+      lastFrame: 576
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_walk_root_motion
+      takeName: 
+      firstFrame: 579
+      lastFrame: 628
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CB_GiantScorpion_run_root_motion
+      takeName: 
+      firstFrame: 631
+      lastFrame: 680
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
