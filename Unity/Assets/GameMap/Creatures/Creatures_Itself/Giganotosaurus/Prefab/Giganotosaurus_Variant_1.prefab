@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 3001053390993635616}
   - component: {fileID: 2422144508547974653}
   - component: {fileID: 8401549915961072552}
-  - component: {fileID: 6636731714203906794}
+  - component: {fileID: 650571287896412594}
   m_Layer: 0
   m_Name: Giganotosaurus_Variant_1
   m_TagString: Untagged
@@ -693,7 +693,7 @@ MonoBehaviour:
   currentAnimation2: 
   attackRange: 0
   playerInSightRange: 0
---- !u!114 &6636731714203906794
+--- !u!114 &650571287896412594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -705,6 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c1ce06791124241a514873973f81a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerIsThere: 0
 --- !u!1 &1709571900514654922
 GameObject:
   m_ObjectHideFlags: 0

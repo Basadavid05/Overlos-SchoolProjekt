@@ -5,7 +5,7 @@ public class Area : MonoBehaviour
     private Collider Coll;
     private int layerMask;
     private int count;
-    private bool PlayerIsThere;
+    public bool PlayerIsThere;
     // Start is called before the first frame update
 
     private void Start()

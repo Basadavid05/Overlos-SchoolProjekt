@@ -213,11 +213,6 @@ public class FinalTwoLayerEnemy : MonoBehaviour
                 ChangeAction(attack);
             }
 
-
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                Debug.Log(distance);
-            }
         }
             
         }
