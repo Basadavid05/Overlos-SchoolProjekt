@@ -1681,6 +1681,7 @@ GameObject:
   - component: {fileID: 8440184704879588162}
   - component: {fileID: 5005587711397305332}
   - component: {fileID: -1183194810205734188}
+  - component: {fileID: -4724262479106011760}
   m_Layer: 0
   m_Name: BlackWolf_Variant_1
   m_TagString: Untagged
@@ -1793,6 +1794,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-4724262479106011760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3877792916560349609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c1ce06791124241a514873973f81a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4277915317926135120
 GameObject:
   m_ObjectHideFlags: 0

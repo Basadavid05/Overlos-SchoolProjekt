@@ -3,6 +3,7 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     public PlayerDatas data;
+    public GameObject areas;
 
     public void Resurrect()
     {

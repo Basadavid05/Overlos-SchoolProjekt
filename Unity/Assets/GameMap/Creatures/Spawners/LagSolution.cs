@@ -4,16 +4,16 @@ using UnityEngine.AI;
 public class LagSolution : MonoBehaviour
 {
     private MonoBehaviour[] scripts;
-    private LayerMask layerMask;
-    private bool mapisenabled;
+    private int layerMask;
+    private bool PlayerwasThere;
     private bool PlayerIsThere;
-    private Collider coll;
+    private BoxCollider coll;
 
     private void Start()
     {
         if (coll != null)
         {
-            coll = GetComponent<Collider>();
+            coll = GetComponent<BoxCollider>();
         }
         else
         {
@@ -24,28 +24,61 @@ public class LagSolution : MonoBehaviour
         }
         coll.isTrigger = true;
         scripts = transform.GetComponents<MonoBehaviour>();
-        layerMask = LayerMask.GetMask("Detection");
-        Invoke("Check", 3f);
+        layerMask = LayerMask.NameToLayer("Detection");
     }
 
     private void OnEnable()
     {
         scripts = transform.GetComponents<MonoBehaviour>();
 
-        Invoke("Check", 3f);
+        Invoke("Check", 0.3f);
     }
 
     private void Check()
     {
-        coll.enabled = false; coll.enabled=true;
+        coll.enabled = false; coll.enabled=true;coll.isTrigger=true;
         Collider[] nearbyColliders = Physics.OverlapSphere(transform.position, 0.05f, layerMask);
         // Check if there is at least one collider nearby
         if (nearbyColliders.Length <= 0)
         { OverDisable(); }
     }
 
+    private void Update()
+    {
+        if (PlayerIsThere && !PlayerwasThere)
+        {
+            OverEnable();
+            PlayerwasThere=true;
+
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Detection"))
+        {
+            OverEnable();
+            PlayerIsThere = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!PlayerIsThere)
+        {
+            if (other.gameObject.CompareTag("Detection"))
+            {
+                PlayerIsThere = true;
+            }
+        }
+    }
+
+
     public void OverDisable()
     {
+        PlayerIsThere=false;
+        PlayerwasThere = false;
+
         if (scripts.Length > 1)
         {
             foreach (var script in scripts)
@@ -58,7 +91,7 @@ public class LagSolution : MonoBehaviour
                 script.enabled = false;
             }
         }
-        
+
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
@@ -71,7 +104,7 @@ public class LagSolution : MonoBehaviour
         {
             rb.isKinematic = true;
         }
-        if(transform.TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
+        if (transform.TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
         {
             agent.enabled = false;
         }
@@ -80,12 +113,12 @@ public class LagSolution : MonoBehaviour
     public void OverEnable()
     {
 
-           foreach (var script in scripts)
-            {
-                script.enabled = true;
-            }
+        foreach (var script in scripts)
+        {
+            script.enabled = true;
+        }
 
-              // Check if MeshRenderer exists before accessing it
+        // Check if MeshRenderer exists before accessing it
         MeshRenderer rg = transform.GetComponent<MeshRenderer>();
         if (rg != null)
         {
@@ -112,35 +145,6 @@ public class LagSolution : MonoBehaviour
             agent.enabled = true;
         }
     }
-
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == layerMask)
-        {
-            OverEnable();
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (!PlayerIsThere)
-        {
-            if (other.gameObject.layer == layerMask)
-            {
-                OverEnable();
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!PlayerIsThere && other.gameObject.layer == layerMask)
-        {
-            OverDisable();
-        }
-    }
-    */
 
 
 

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class FinalOneLayerEnemyScript : MonoBehaviour
 {
@@ -14,12 +15,12 @@ public class FinalOneLayerEnemyScript : MonoBehaviour
     private Transform player;
     [HideInInspector] public List<Transform> Damagers;
     [HideInInspector] public int heal;
-    public int CurrentHeal;
+    [HideInInspector] public int CurrentHeal;
     private bool healDifference;
 
     [Header("Animations")]
     private Animator animator;
-    public string currentAnimation="";
+    private string currentAnimation="";
     private string attack;
     private bool NextAttack;
     //private Coroutine attackCoroutine;
@@ -30,8 +31,7 @@ public class FinalOneLayerEnemyScript : MonoBehaviour
     private float sightAngle;
 
 
-    public float attackRange;
-    public bool playerInSightRange;
+    private bool playerInSightRange;
     private bool playerWasSeen;
     private Vector3 Searchpoint;
     private bool searchtimer;
@@ -60,7 +60,7 @@ public class FinalOneLayerEnemyScript : MonoBehaviour
         Player = LayerMask.GetMask("Player");
         sightRange = Enemy.SeeDistance;
         sightAngle = Enemy.SeeAngle;
-        attackRange=Enemy.AttackDistance;
+        AttackRange=Enemy.AttackDistance;
         Speed(Enemy.WalkSpeed);
         animator = GetComponent<Animator>();
         NextAttack = false;

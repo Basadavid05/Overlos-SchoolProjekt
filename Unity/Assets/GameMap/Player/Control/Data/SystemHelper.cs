@@ -10,39 +10,22 @@ public class SystemHelper : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Creatures") || other.CompareTag("Enemy") || other.CompareTag("Envirament"))
-        {
-            LagSolution lagSolution = other.gameObject.GetComponent<LagSolution>();
-            if (lagSolution != null)
-            {
-                lagSolution.OverEnable();
-            }
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Creatures") || other.CompareTag("Enemy") || other.CompareTag("Envirament"))
-        {
-            LagSolution lagSolution = other.gameObject.GetComponent<LagSolution>();
-            if (lagSolution != null)
-            {
-                lagSolution.OverEnable();
-            }
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Creatures") || other.CompareTag("Enemy") || other.CompareTag("Envirament"))
         {
             LagSolution lagSolution = other.gameObject.GetComponent<LagSolution>();
+            Area areas= other.gameObject.GetComponent<Area>();
             if (lagSolution != null)
             {
                 lagSolution.OverDisable();
             }
+            if (areas != null)
+            {
+                areas.ChildrenChange(false);
+            }
+
+
         }
     }
 

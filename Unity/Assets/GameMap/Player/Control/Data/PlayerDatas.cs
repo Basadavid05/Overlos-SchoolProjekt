@@ -30,8 +30,8 @@ public class PlayerDatas : MonoBehaviour
         sliders.maxValue= PlayerMaxHealth;
         PlayerCurrentHealth = PlayerMaxHealth;
         PlayerHP = PlayerMaxHealth;
-        minTime= 60;
-        maxTime= 120;
+        minTime= 300;
+        maxTime= 420;
         StartCoroutine(AddSouls());
 
     }

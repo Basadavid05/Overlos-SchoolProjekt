@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 1593718248452139111}
   - component: {fileID: 3145900192672881129}
   - component: {fileID: 6760972494710675556}
+  - component: {fileID: 825448725598650780}
   m_Layer: 0
   m_Name: Giganotosaurus_Variant_2
   m_TagString: Untagged
@@ -381,6 +382,18 @@ MonoBehaviour:
   currentAnimation2: 
   attackRange: 0
   playerInSightRange: 0
+--- !u!114 &825448725598650780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503694310198854823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c1ce06791124241a514873973f81a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &546883839132058004
 GameObject:
   m_ObjectHideFlags: 0

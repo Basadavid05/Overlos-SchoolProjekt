@@ -18,6 +18,7 @@ TagManager:
   - Soul
   - Island1
   - Envirament
+  - Detection
   layers:
   - Default
   - TransparentFX

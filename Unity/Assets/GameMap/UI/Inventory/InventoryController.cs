@@ -21,7 +21,7 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (!PauseMenu.GameIsPause && !MapControl.MapIsEnabled && !SoulShop.SoulShopActive)
+        if (!PauseMenu.GameIsPause && !MapControl.MapIsEnabled && !SoulShop.SoulShopActive && !PlayerDatas.Death)
         {
                 if (Input.GetKeyDown(KeyCode.I))
                 {
@@ -35,6 +35,13 @@ public class InventoryController : MonoBehaviour
                         //ItemSort.instance.listItems();
                     }
                 }
+        }
+
+        if(PlayerDatas.Death && InventoryOpen)
+        {
+            InventoryOpen = false;
+            Inventory.SetActive(false);
+            InventoryDrop.SetActive(false);
         }
     }
 

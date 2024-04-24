@@ -74,6 +74,7 @@ public class Sp1 : MonoBehaviour
     {
         int rand = Random.Range(0, enemyPrefab.Length);
         GameObject Enemy = Instantiate(enemyPrefab[rand], GetValidSpawnPoint(), Quaternion.identity);
+        Enemy.tag = "Enemy";
         SpawnReferences.RotateObjectToGroundNormal(Enemy, spawnPosition);
         Enemy.transform.localScale = Enemy.transform.localScale * Random.Range(.7f, 1.6f);
         Enemy.transform.SetParent(Title.transform.GetChild(rand));

@@ -14,13 +14,13 @@ public class FinalTwoLayerEnemy : MonoBehaviour
         private Transform player;
         [HideInInspector] public  List<Transform> Damagers;
         [HideInInspector] public int heal;
-        public int CurrentHeal;
+        [HideInInspector] public int CurrentHeal;
         private bool healDifference;
 
         [Header("Animations")]
         private Animator animator;
-        public string currentAnimation = "";
-        public string currentAnimation2 = "";
+        private string currentAnimation = "";
+        private string currentAnimation2 = "";
         private string attack;
         private bool NextAttack;
         //private Coroutine attackCoroutine;
@@ -30,8 +30,8 @@ public class FinalTwoLayerEnemy : MonoBehaviour
         private float sightAngle;
 
 
-        public float attackRange;
-        public bool playerInSightRange;
+        private float attackRange;
+        private bool playerInSightRange;
         private bool playerWasSeen;
         private Vector3 Searchpoint;
         private bool searchtimer;
@@ -308,7 +308,6 @@ public class FinalTwoLayerEnemy : MonoBehaviour
             int healDifference = heal - CurrentHeal;
             heal = heal - healDifference;
             CurrentHeal = heal;
-            Debug.Log(CurrentHeal);
             if (CurrentHeal > 0)
             {
                 ChangeAnimation("hit1");
@@ -317,7 +316,6 @@ public class FinalTwoLayerEnemy : MonoBehaviour
             else
             {
 
-                Debug.Log(heal);
                 if (!death)
                 {
                     death = true;

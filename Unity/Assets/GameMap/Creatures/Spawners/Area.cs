@@ -5,7 +5,7 @@ public class Area : MonoBehaviour
     private Collider Coll;
     private int layerMask;
     private int count;
-    public bool PlayerIsThere;
+    private bool PlayerIsThere;
     // Start is called before the first frame update
 
     private void Start()
@@ -41,15 +41,7 @@ public class Area : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if(!PlayerIsThere && other.gameObject.layer == layerMask)
-        {
-            ChildrenChange(false);
-        }
-    }
-
-    private void ChildrenChange(bool status)
+    public void ChildrenChange(bool status)
     {
         PlayerIsThere = status;
         if (count==1)

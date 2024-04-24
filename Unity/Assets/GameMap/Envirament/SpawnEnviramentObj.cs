@@ -28,9 +28,9 @@ public class SpawnEnviramentObj : MonoBehaviour
     public enum type
     {
 
-        trees=300,
-        forest=1713,
-        coral=713,
+        trees=250,
+        forest=1313,
+        coral=613,
     }
 
     public type selectedType;
@@ -90,6 +90,7 @@ public class SpawnEnviramentObj : MonoBehaviour
             } while (Watertest(spawnPosition) && CanThereSpawn);
             int SpawnObj = Random.Range(0, SpawningObj.Length);
             GameObject objToSpawn = Instantiate(SpawningObj[SpawnObj], spawnPosition, Quaternion.identity, Title.transform.GetChild(SpawnObj));
+            objToSpawn.tag = "Envirament";
             counter++;
 
         }
