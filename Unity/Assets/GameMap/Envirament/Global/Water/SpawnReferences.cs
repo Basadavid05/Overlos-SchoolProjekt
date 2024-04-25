@@ -27,7 +27,7 @@ public class SpawnReferences : MonoBehaviour
 
         if (Respawnenemy)
         {
-            Invoke("Enemy", 2f);
+            Invoke("Enemy", 0.1f);
         }
     }
 

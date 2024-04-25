@@ -4,43 +4,39 @@ using System.Collections;
 public class SpecialPotion : MonoBehaviour
 {
     public static SpecialPotion sp;
-    private Collider coll;
+    public static bool Invincible;
+    public static int InvcCount;
+    public Collider coll;
+    private Coroutine currentCoroutine;
 
-    private void Awake()
-    {
-        // Assign this instance to the static instance variable
-        if (sp == null)
-        {
-            sp = this;
-        }
-        else
-        {
-            // If an instance already exists, destroy this one
-            Destroy(gameObject);
-        }
-
-        // Ensure this object persists across scenes
-    }
     private void Start()
     {
         coll= GetComponent<Collider>();
+        sp = this;
     }
 
     public static void BecomeImortal(int time)
     {
-        sp.StartCoroutine(sp.AddRandomObject(time));
+        // Stop the previous coroutine if it's running
+        if (sp.currentCoroutine != null)
+        {
+            sp.StopCoroutine(sp.currentCoroutine);
+        }
+
+        // Start the new coroutine
+        sp.currentCoroutine = sp.StartCoroutine(sp.AddRandomObject(time * 60));
     }
 
     IEnumerator AddRandomObject(int time)
     {
-        while (true)
-        {
-            coll.isTrigger = false;
-            // Wait for a random time between time and time
-            float waitTime = Random.Range(time, time);
-            yield return new WaitForSeconds(waitTime);
-            coll.isTrigger = true;
-        }
+        coll.enabled = false;
+        Invincible = true;
+        InvcCount = time;
+        yield return new WaitForSecondsRealtime(time);
+        InvcCount = 0;
+        Invincible = false;
+        coll.enabled = true;coll.isTrigger = true;
+    
     }
 
 

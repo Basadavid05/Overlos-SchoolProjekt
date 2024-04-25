@@ -334,7 +334,9 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Update()
         {
-
+        if (Input.GetKeyDown(KeyCode.V)){
+            SoulCounterController.SoulCount += 500;
+        }
         
 
         if (item != null)
@@ -347,7 +349,8 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         if (isMouseOver)
                 {
-                    if (Input.GetKeyDown(KeyCode.O) && item!=null && item.name != "Knife")
+            
+                    if (Input.GetKeyDown(KeyCode.O) && item!=null && item.name != "Knife" && !item.potion)
                     {
                         //Call the Drop function
                         Drop(false);
@@ -355,20 +358,43 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
                     if (Input.GetKeyDown(KeyCode.E) && item.potion)
                     {
-                        if(item.name.Contains("Heal +") && item.name!= "Heal +10000")
+                        if(item.ItemName.Contains("Heal +") && item.name!="poison")
                         {
-                            PlayerDatas.RestoreHealth(item.heal);
-                              Debug.Log("something");
-                            Remove(item);
-                    }
-
-                        if (item.name.Contains("invincibility"))
-                        {
-                            SpecialPotion.BecomeImortal(item.heal);
-                            Debug.Log("something");
-                            Remove(item);
+                            if (PlayerDatas.PlayerMaxHealth != PlayerDatas.PlayerHP)
+                            {
+                                AnnihilateItem(item);
+                                PlayerDatas.RestoreHealth(item.heal);
+                            }
                         }
-                    }
+
+                        if (item.ItemName.Contains("invincibility"))
+                        {
+                            if (SpecialPotion.Invincible)
+                            {
+                                if (SpecialPotion.InvcCount > item.heal)
+                                {
+                                    SpecialPotion.BecomeImortal(item.heal);
+                                    AnnihilateItem(item);
+                                }
+                                else
+                                {
+                                    
+                                }
+                            }
+                            else
+                                {
+                                    SpecialPotion.BecomeImortal(item.heal);
+                                    AnnihilateItem(item);
+                                }
+                        }
+
+                        if (item.name == "poison")
+                        {
+                            AnnihilateItem(item);
+                            PlayerDatas.Takedamage(10000);
+                        }
+
+            }
         }
 
             if (gameObject.activeSelf)
@@ -488,6 +514,19 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                     ItemPlacement.instance.Remove(item);
                     ItemPlacement.instance.InventoryRemover(this);
                 }
+
+    private void AnnihilateItem(Item item)
+    {
+        if (counter > 1)
+        {
+            counter--;
+        }
+        else
+        {
+            Remove(item);
+            Destroy(this.gameObject);
+        }
+    }
 
 }
 

@@ -15,7 +15,7 @@ public class SoulActivet : MonoBehaviour
     {
         if (other.CompareTag("MainCamera"))
         {
-            if (Input.GetKeyDown(KeyCode.E) && !SoulShop.SoulShopActive)
+            if (Input.GetKeyDown(KeyCode.E) && !SoulShop.SoulShopActive && !InventoryController.InventoryOpen)
             {
                 soulShop.Switcher(true);
             }

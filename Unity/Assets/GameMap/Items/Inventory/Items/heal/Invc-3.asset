@@ -17,10 +17,10 @@ MonoBehaviour:
   stackable: 1
   Icon: {fileID: 21300000, guid: 998932754edab9e43880993810ab1182, type: 3}
   Prefab: {fileID: 919132149155446097, guid: 1011937693c12744ea078a91a6ee07ab, type: 3}
-  MaxItem: 1
+  MaxItem: 5
   DropLocation: {fileID: 0}
   Toolbar: 0
-  Toolbarnumber: 0
+  Toolbarnumber: -1
   quantity: 1
   SoulPrice: 1400
   Code: gortf-sta45-9934r-23sd

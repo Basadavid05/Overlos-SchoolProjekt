@@ -17,10 +17,10 @@ MonoBehaviour:
   stackable: 1
   Icon: {fileID: 21300000, guid: a7d33b4a59701344b8fb35b3359a3350, type: 3}
   Prefab: {fileID: 919132149155446097, guid: 1011937693c12744ea078a91a6ee07ab, type: 3}
-  MaxItem: 1
+  MaxItem: 5
   DropLocation: {fileID: 0}
   Toolbar: 0
-  Toolbarnumber: 0
+  Toolbarnumber: -1
   quantity: 1
   SoulPrice: 900
   Code: hf420-hr671-fgt5d-bb98

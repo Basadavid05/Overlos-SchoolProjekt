@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MoveControl : MonoBehaviour
@@ -76,6 +77,7 @@ public class MoveControl : MonoBehaviour
     private float standingHeight = 2f; // Height when standing
     private float crouchHeight = 1f; // Height when crouching
     private float Heightarget;
+    private bool failingfromsky;
 
     [Header("Chrouching")]
     private int cKeyPressCount;
@@ -105,6 +107,8 @@ public class MoveControl : MonoBehaviour
 
 
     private Vector3 previousPosition;
+    public float maxFallDamageHeight = 10f;
+    public float maxFallDamage = 50f;
 
 
     private void Start()
@@ -155,10 +159,19 @@ public class MoveControl : MonoBehaviour
     private void FixedUpdate()
     {
         UnderneathorFloating();
+
         if (sliding)
         {
             SlidingMovement();
         }
+        if(!InWater && !isOnGround)
+        {
+            /*if (IsFalling())
+            {
+                CalculateFallDamage();
+            }*/
+        }
+        
     }
 
     private void ControlDrag()
@@ -250,7 +263,7 @@ public class MoveControl : MonoBehaviour
             }
             else
             {
-                rb.AddForce(Vector3.down * gravity * rb.mass / 2 * 2f);
+                rb.AddForce(Vector3.down * gravity * rb.mass * 4f);
             }
         }
         else
@@ -291,6 +304,39 @@ public class MoveControl : MonoBehaviour
         }
     }
 
+    /*
+    private bool IsFalling()
+    {
+        // Cast a ray downwards to detect ground
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity, groundmask))
+        {
+            // Check if the distance to the ground is greater than a threshold
+            if (hit.distance > maxFallDamageHeight)
+            {
+                return true; // Character is falling
+            }
+        }
+
+        return false; // Character is not falling
+    }
+
+    private void CalculateFallDamage()
+    {
+        float fallHeight = Mathf.Max(0f, transform.position.y - previousPosition.y); // Calculate fall height
+        float damage = 0f;
+
+        if (fallHeight > maxFallDamageHeight)
+        {
+            // Calculate fall damage based on fall height
+            damage = Mathf.Lerp(0f, maxFallDamage, (fallHeight - maxFallDamageHeight) / (maxFallDamageHeight * 2));
+        }
+
+        // Apply fall damage to the character's health or any relevant variable
+        // For example, you can reduce health by the calculated damage amount
+        // Replace this line with your actual logic to apply fall damage
+        Debug.Log("Fall Damage: " + damage);
+    }*/
+
 
     private void BoolControl()
     {
@@ -316,7 +362,7 @@ public class MoveControl : MonoBehaviour
     {
         if (!ISUnderwater)
         {
-            if (Input.GetKeyDown(jumpkey) && !cannotjump && readytojump)
+            if (Input.GetKeyDown(jumpkey) && !cannotjump && readytojump && isOnGround)
             {
                 Jumping();
                 ChangeAnimation("jump", true);
@@ -342,7 +388,6 @@ public class MoveControl : MonoBehaviour
             readytojump = false;
             ExitSlope = true;
             jumping = true;
-
             // Calculate the jump force based on the desired jump height
             float jumpForce = Mathf.Sqrt(2f * jumpheight * 10);
 

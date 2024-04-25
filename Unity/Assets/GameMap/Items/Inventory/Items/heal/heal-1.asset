@@ -17,10 +17,10 @@ MonoBehaviour:
   stackable: 1
   Icon: {fileID: 21300000, guid: 68fa10f1dd46f694cb104b4b5b6e6621, type: 3}
   Prefab: {fileID: 919132149155446097, guid: 1011937693c12744ea078a91a6ee07ab, type: 3}
-  MaxItem: 1
+  MaxItem: 20
   DropLocation: {fileID: 0}
   Toolbar: 0
-  Toolbarnumber: 0
+  Toolbarnumber: -1
   quantity: 1
   SoulPrice: 300
   Code: hrg5d-892pd-freen-231h
