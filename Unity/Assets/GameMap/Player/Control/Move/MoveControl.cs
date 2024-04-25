@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class MoveControl : MonoBehaviour
@@ -18,26 +19,26 @@ public class MoveControl : MonoBehaviour
     private float UnderWaterMoving = 15f;
 
     [Header("Keybind")]
-    public KeyCode Sprintkey = KeyCode.LeftShift;
-    public KeyCode jumpkey = KeyCode.Space;
-    public KeyCode Slidekey = KeyCode.LeftControl;
-    public KeyCode Chrouchkey = KeyCode.C;
-    public KeyCode IsAltkey = KeyCode.LeftAlt;
+    [HideInInspector] public KeyCode Sprintkey = KeyCode.LeftShift;
+    [HideInInspector] public KeyCode jumpkey = KeyCode.Space;
+    [HideInInspector] public KeyCode Slidekey = KeyCode.LeftControl;
+    [HideInInspector] public KeyCode Chrouchkey = KeyCode.C;
+    [HideInInspector] public KeyCode IsAltkey = KeyCode.LeftAlt;
 
     [Header("bools")]
-    public bool IsTryingToSprinting;
-    public bool IsTryingToSliding;
-    public bool IsAltkeyDown;
-    public bool IsTryingToChrouch;
-    public bool isnotmoving;
-    public bool isOnGround;
+    private bool IsTryingToSprinting;
+    private bool IsTryingToSliding;
+    private bool IsAltkeyDown;
+    private bool IsTryingToChrouch;
+    private bool isnotmoving;
+    [HideInInspector] public bool isOnGround;
     private bool Ceilingup;
 
     [Header("Water")]
     public LayerMask Water;
-    public bool InWater=false;
-    public bool ISUnderwater=false;
-    public bool PlayerisUnderWater=false;
+    [HideInInspector] public bool InWater=false;
+    [HideInInspector] public bool ISUnderwater=false;
+    [HideInInspector] public bool PlayerisUnderWater=false;
     public static bool UnderwaterEffects=false;
     private Transform Center;
 
@@ -47,23 +48,23 @@ public class MoveControl : MonoBehaviour
     private Transform CeilingCheck;
 
     [Header("Ground")]
-    private float groundDistance = 0.6f;
+    private float groundDistance = .5f;
     public LayerMask groundmask;
     private float celingdistancecheck;
 
     [Header("Slope")]
-    public bool isOnSlope;
+    [HideInInspector] public bool isOnSlope;
     private float maxSlopeAngle = 35f;
     private float slopeAdjustmentForce;
-    public RaycastHit slopeHit;
+    private RaycastHit slopeHit;
     private float raycastOffset =1.5f;
 
     [Header("Drag")]
-    public float groundDrag = 4f;
-    public float gravity = 20f;
-    public float airDrag = 0.2f;
-    public float terminalVelocity = 10f;
-    public float ActiveDownForce;
+    private float groundDrag = 4f;
+    private float gravity = 20f;
+    private float airDrag = 0.2f;
+    private float terminalVelocity = 10f;
+    private float ActiveDownForce;
 
     [Header("Jump")]
     private float jumpheight = 13f;
@@ -78,6 +79,7 @@ public class MoveControl : MonoBehaviour
     private float crouchHeight = 1f; // Height when crouching
     private float Heightarget;
     private bool failingfromsky;
+    private float horizontalInput, verticalInput;
 
     [Header("Chrouching")]
     private int cKeyPressCount;
@@ -91,12 +93,11 @@ public class MoveControl : MonoBehaviour
     private Transform orientation;
 
     [Header("Sliding")]
-    public bool sliding;
-    public float maxSlideTime = 0.75f;
-    public float slideForce;
-    public float slideTimer;
-    public float slideYscale = 0.75f;
-    float horizontalInput, verticalInput;
+    private bool sliding;
+    private float maxSlideTime = 0.75f;
+    private float slideForce;
+    private float slideTimer=.5f;
+    private float slideYscale = 0.75f;
 
     [Header("Animations")]
     public static Animator Animator;
@@ -147,13 +148,33 @@ public class MoveControl : MonoBehaviour
     {
         BoolControl();
         SpeedControl();
+        GroupOfIfs();
         Gravity();
         //Slope();
         ControlDrag();
         SpeedLimiter();
-        GroupOfIfs();
         ControlDrag();
         if (NoUpperAnimation) { NormalAnimation(); }
+    }
+
+    private void BoolControl()
+    {
+        isOnGround = Physics.Raycast(groundCheck.position, Vector3.down,groundDistance, groundmask);
+        Ceilingup = Physics.Raycast(CeilingCheck.position, Vector3.up, celingdistancecheck);
+
+        cannotjump = Ceilingup || !isOnGround || ChrouchIsOn || sliding || PlayerisUnderWater;
+        celingdistancecheck = ChrouchIsOn ? 1f : 0.4f;
+
+        isnotmoving = (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && isOnGround);
+
+        IsTryingToSprinting = Input.GetKey(Sprintkey);
+        IsTryingToChrouch = Input.GetKey(Chrouchkey);
+        IsTryingToSliding = Input.GetKeyDown(Slidekey);
+        IsAltkeyDown = Input.GetKeyDown(IsAltkey);
+
+        gravity = Physics.gravity.magnitude;
+        isOnSlope = HandleSlope();
+        rb.useGravity = !HandleSlope();
     }
 
     private void FixedUpdate()
@@ -171,9 +192,17 @@ public class MoveControl : MonoBehaviour
                 CalculateFallDamage();
             }*/
         }
-        
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (jumping)
+        {
+                jumping = false;
+                Invoke(nameof(JumpCooldown), 2f);
+        }
+    }
+        
     private void ControlDrag()
     {
         if (isOnGround || ISUnderwater)
@@ -243,12 +272,16 @@ public class MoveControl : MonoBehaviour
             ChangeAnimation("fall", false);
         }
 
-
     }
 
     private void Gravity()
     {
-        if (!jumping)
+        if(!PlayerisUnderWater && !isOnGround && !jumping)
+        {
+            rb.AddForce(Vector3.down * gravity * rb.mass * 15f);
+            //Debug.Log("s");
+        }
+        else if(!PlayerisUnderWater && isOnGround && !jumping)
         {
             if (HandleSlope())
             {
@@ -263,12 +296,18 @@ public class MoveControl : MonoBehaviour
             }
             else
             {
-                rb.AddForce(Vector3.down * gravity * rb.mass * 4f);
+                //Debug.Log("se");
+                rb.AddForce(Vector3.down * gravity * rb.mass);
             }
         }
-        else
+        else if (PlayerisUnderWater)
         {
-            rb.AddForce(Vector3.down*2);
+            rb.AddForce(Vector3.down * 3);
+        }
+        else if(jumping)
+        {
+            rb.AddForce(Vector3.down*1);
+            //Debug.Log("ss");
         }
         
     }
@@ -337,37 +376,17 @@ public class MoveControl : MonoBehaviour
         Debug.Log("Fall Damage: " + damage);
     }*/
 
-
-    private void BoolControl()
-    {
-        isOnGround = Physics.CheckSphere(groundCheck.position, groundDistance, groundmask);
-        Ceilingup = Physics.Raycast(CeilingCheck.position, Vector3.up, celingdistancecheck);
-
-        cannotjump = Ceilingup || !isOnGround || ChrouchIsOn || sliding || ISUnderwater;
-        celingdistancecheck = ChrouchIsOn ? 1f : 0.4f;
-
-        isnotmoving = (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0);
-
-        IsTryingToSprinting = Input.GetKey(Sprintkey);
-        IsTryingToChrouch = Input.GetKey(Chrouchkey);
-        IsTryingToSliding = Input.GetKeyDown(Slidekey);
-        IsAltkeyDown = Input.GetKeyDown(IsAltkey);
-
-        gravity = Physics.gravity.magnitude;
-        isOnSlope = HandleSlope();
-        rb.useGravity = !HandleSlope();
-    }
-
     private void GroupOfIfs()
     {
         if (!ISUnderwater)
         {
             if (Input.GetKeyDown(jumpkey) && !cannotjump && readytojump && isOnGround)
             {
-                Jumping();
+                Jump();
                 ChangeAnimation("jump", true);
-                Invoke(nameof(JumpCooldown), 1f);
             }
+
+            
 
             Sliding();
 
@@ -381,20 +400,17 @@ public class MoveControl : MonoBehaviour
     }
 
 
-    private void Jumping()
+    private void Jump()
     {
-        if (isOnGround)
-        {
             readytojump = false;
             ExitSlope = true;
-            jumping = true;
             // Calculate the jump force based on the desired jump height
-            float jumpForce = Mathf.Sqrt(2f * jumpheight * 10);
+            float jumpForce = Mathf.Sqrt(1.3f* jumpheight * 10);
 
             // Apply the jump force
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            jumping=true;
 
-        }
     }
 
     private void JumpCooldown()
@@ -675,6 +691,7 @@ public class MoveControl : MonoBehaviour
 
         }
     }
+
 
     /*
       if (!ExitSlope && !isnotmoving)

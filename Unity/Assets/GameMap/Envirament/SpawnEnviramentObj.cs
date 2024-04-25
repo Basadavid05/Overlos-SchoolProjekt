@@ -29,8 +29,8 @@ public class SpawnEnviramentObj : MonoBehaviour
     {
 
         trees=250,
-        forest=1313,
-        coral=613,
+        forest=1013,
+        coral=413,
     }
 
     public type selectedType;

@@ -47,6 +47,8 @@ public class ScriptsManager : MonoBehaviour
             // Skip the DisableScriptsForGameObject script itself
             if (script.GetType() == typeof(ScriptsManager))
                 continue;
+            if (script.GetType() == typeof(MoveControl))
+                continue;
             script.enabled = false;
         }
     }
