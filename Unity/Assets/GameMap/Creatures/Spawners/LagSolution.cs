@@ -8,29 +8,29 @@ public class LagSolution : MonoBehaviour
     private bool PlayerwasThere;
     private bool PlayerIsThere;
     private BoxCollider coll;
+    private int spawn;
 
-    private void Start()
-    {
-        if (coll != null)
-        {
-            coll = GetComponent<BoxCollider>();
-        }
-        else
-        {
-            coll = gameObject.AddComponent<BoxCollider>();
-            // Set the size of the BoxCollider
-            BoxCollider boxCollider = (BoxCollider)coll;
-            boxCollider.size = new Vector3(0.1f, 0.1f, 0.1f);
-        }
-        coll.isTrigger = true;
-        scripts = transform.GetComponents<MonoBehaviour>();
-        layerMask = LayerMask.NameToLayer("Detection");
-    }
 
     private void OnEnable()
     {
-        scripts = transform.GetComponents<MonoBehaviour>();
-
+        if (spawn == 0)
+        {
+            if (coll != null)
+            {
+                coll = GetComponent<BoxCollider>();
+            }
+            else
+            {
+                coll = gameObject.AddComponent<BoxCollider>();
+                // Set the size of the BoxCollider
+                BoxCollider boxCollider = (BoxCollider)coll;
+                boxCollider.size = new Vector3(0.1f, 0.1f, 0.1f);
+            }
+            coll.isTrigger = true;
+            scripts = transform.GetComponents<MonoBehaviour>();
+            layerMask = LayerMask.NameToLayer("Detection");
+            spawn++;
+        }
         Invoke("Check", 0.3f);
     }
 
