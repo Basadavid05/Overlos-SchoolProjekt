@@ -49,6 +49,8 @@ public class ScriptsManager : MonoBehaviour
                 continue;
             if (script.GetType() == typeof(MoveControl))
                 continue;
+            if (script.GetType() == typeof(PlayerDatas))
+                continue;
             script.enabled = false;
         }
     }

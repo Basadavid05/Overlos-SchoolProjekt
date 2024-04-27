@@ -16,8 +16,9 @@ public class FinalTwoLayerEnemy : MonoBehaviour
         [HideInInspector] public int heal;
         [HideInInspector] public int CurrentHeal;
         private bool healDifference;
+        private float rotationSpeed = 0.5f;
 
-        [Header("Animations")]
+    [Header("Animations")]
         private Animator animator;
         private string currentAnimation = "";
         private string currentAnimation2 = "";
@@ -183,9 +184,9 @@ public class FinalTwoLayerEnemy : MonoBehaviour
         {
             playerWasSeen = true;
             SeeMe(true);
-
-            Vector3 lookAtPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
-            transform.LookAt(lookAtPosition);
+            Vector3 lookAtPosition = Vector3.zero; // Set your target position here
+            Quaternion targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             float distance = Vector3.Distance(transform.position, player.position);
 

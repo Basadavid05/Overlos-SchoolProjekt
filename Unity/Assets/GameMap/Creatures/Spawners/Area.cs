@@ -6,14 +6,12 @@ public class Area : MonoBehaviour
     private int layerMask;
     private int count;
     public bool PlayerIsThere;
-    // Start is called before the first frame update
 
     private void Start()
     {
         Coll = GetComponent<Collider>();
         count = transform.childCount;
         layerMask = LayerMask.NameToLayer("Detection");
-
         Invoke("DelayedStart", 0.1f);
     }
 
@@ -24,9 +22,12 @@ public class Area : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == layerMask)
+        if (!PlayerIsThere)
         {
-            ChildrenChange(true);
+            if (other.gameObject.layer == layerMask)
+            {
+                ChildrenChange(true);
+            }
         }
     }
 
@@ -38,6 +39,14 @@ public class Area : MonoBehaviour
             {
                 ChildrenChange(true);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (PlayerIsThere && SpawnReferences.Respawnenemy)
+        {
+            ChildrenChange(true);
         }
     }
 
