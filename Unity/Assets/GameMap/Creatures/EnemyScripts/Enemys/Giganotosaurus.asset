@@ -15,6 +15,13 @@ MonoBehaviour:
   Name: Giganotosaurus
   Heal: 3000
   SoulPrice: 730
+  Materials:
+  - {fileID: 2100000, guid: dcad1276e0bba6345a80b3f704cb3111, type: 2}
+  - {fileID: 2100000, guid: 8ba9bab9b5afd714e877b1add91e00e6, type: 2}
+  - {fileID: 2100000, guid: 36d9b535aad487a46a91efd8504925af, type: 2}
+  - {fileID: 2100000, guid: 9100125dee5a18448aa206e61ec7bafd, type: 2}
+  - {fileID: 2100000, guid: 744299f6f4406284ebfdee2085ce8e59, type: 2}
+  - {fileID: 2100000, guid: 15095df48e1615240b8e5f9a8da77294, type: 2}
   SeeAngle: 180
   SeeDistance: 150
   SearchChance: 0.838

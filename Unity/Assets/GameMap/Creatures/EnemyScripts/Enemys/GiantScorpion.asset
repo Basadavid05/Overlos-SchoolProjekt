@@ -15,6 +15,9 @@ MonoBehaviour:
   Name: GiantScorpion
   Heal: 600
   SoulPrice: 500
+  Materials:
+  - {fileID: 2100000, guid: d3ba8243ec7c44d41a3bf7b99a96e660, type: 2}
+  - {fileID: 2100000, guid: c4e32f75bf072e044b7af79f9b624d5c, type: 2}
   SeeAngle: 140
   SeeDistance: 100
   SearchChance: 0.51

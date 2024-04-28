@@ -15,6 +15,9 @@ MonoBehaviour:
   Name: Black Wolf
   Heal: 300
   SoulPrice: 100
+  Materials:
+  - {fileID: 2100000, guid: b8c140c8fd44b4f4db3836d3e70b7b90, type: 2}
+  - {fileID: 2100000, guid: d452a0747d476fe47bb067d6555da28a, type: 2}
   SeeAngle: 100
   SeeDistance: 50
   SearchChance: 0.625

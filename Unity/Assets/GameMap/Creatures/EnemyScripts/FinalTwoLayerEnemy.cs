@@ -19,7 +19,7 @@ public class FinalTwoLayerEnemy : MonoBehaviour
         private bool healDifference;
         private float rotationSpeed = 1.3f;
 
-    [Header("Animations")]
+        [Header("Animations")]
         private Animator animator;
         private string currentAnimation = "";
         private string currentAnimation2 = "";
@@ -70,12 +70,26 @@ public class FinalTwoLayerEnemy : MonoBehaviour
             SwitchAttackMethod();
             if (spawn == 0)
             {
-                heal = Enemy.Heal;
-                CurrentHeal = Enemy.Heal;
-                ChangeAnimation("walk");
-                ChangeAction("stand");
-                spawn = 1;
-                death = false;
+                if (Enemy.Materials.Count > 1)
+                {
+                    int random = Random.Range(0, Enemy.Materials.Count);
+                    for (int i = 0; i < transform.childCount; i++)
+                    {
+                        SkinnedMeshRenderer renderer = transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
+                        if (renderer != null)
+                        {
+                            renderer.sharedMaterial = null;
+                            renderer.sharedMaterial = Enemy.Materials[random];
+                        }
+                    }
+                }
+
+                    heal = Enemy.Heal;
+                    CurrentHeal = Enemy.Heal;
+                    ChangeAnimation("walk");
+                    ChangeAction("stand");
+                    spawn = 1;
+                    death = false;
             }
             if (Enemy.AttackCount > 1)
             {
@@ -147,9 +161,6 @@ public class FinalTwoLayerEnemy : MonoBehaviour
 
         private void Patroling()
         {
-            ChangeAnimation("walk");
-            ChangeAction("stand");
-            Speed(Enemy.WalkSpeed);
             if (!walkPointSet) SearchWalkPoint();
 
             if (walkPointSet)
@@ -159,6 +170,10 @@ public class FinalTwoLayerEnemy : MonoBehaviour
 
             if (distanceToWalkPoint.magnitude < 1f)
                 walkPointSet = false;
+
+            ChangeAnimation("walk");
+            ChangeAction("stand");
+            Speed(Enemy.WalkSpeed);
         }
 
         private void SearchWalkPoint()

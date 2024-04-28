@@ -3,6 +3,7 @@ using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 
 public class FinalOneLayerEnemyScript : MonoBehaviour
 {
@@ -69,6 +70,20 @@ public class FinalOneLayerEnemyScript : MonoBehaviour
         SwitchAttackMethod();
         if (spawn == 0)
         {
+            if (Enemy.Materials.Count > 1)
+            {
+                int random = Random.Range(0, Enemy.Materials.Count);
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    SkinnedMeshRenderer renderer = transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
+                    if (renderer != null)
+                    {
+                        renderer.sharedMaterial = null;
+                        renderer.sharedMaterial = Enemy.Materials[random];
+                    }
+                }
+            }
+
             heal = Enemy.Heal;
             CurrentHeal = Enemy.Heal;
             spawn = 1;

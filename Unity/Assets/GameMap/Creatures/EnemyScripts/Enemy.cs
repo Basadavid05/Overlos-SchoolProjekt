@@ -11,6 +11,9 @@ public class Enemy : ScriptableObject
     public int Heal;
     public int SoulPrice;
 
+    [Header("Materials")]
+    public List<Material> Materials;
+
     [Header("Detetion")]
     public int SeeAngle;
     public int SeeDistance;
