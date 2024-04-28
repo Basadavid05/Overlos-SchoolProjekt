@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LightningColor : MonoBehaviour
@@ -71,4 +70,6 @@ public class LightningColor : MonoBehaviour
             StartCoroutine(ChangeColorRoutine());
         }
     }
+
+    
 }

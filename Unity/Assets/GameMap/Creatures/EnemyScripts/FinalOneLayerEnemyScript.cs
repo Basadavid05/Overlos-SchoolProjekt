@@ -17,7 +17,7 @@ public class FinalOneLayerEnemyScript : MonoBehaviour
     [HideInInspector] public int heal;
     [HideInInspector] public int CurrentHeal;
     private bool healDifference;
-    private float rotationSpeed = 0.1f;
+    private float rotationSpeed = 1.3f;
 
     [Header("Animations")]
     private Animator animator;
@@ -169,9 +169,9 @@ public class FinalOneLayerEnemyScript : MonoBehaviour
             playerWasSeen = true;
             SeeMe(true);
 
-            Vector3 lookAtPosition = Vector3.zero; // Set your target position here
-            Quaternion targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            Vector3 targetDirection = player.transform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             float distance = Vector3.Distance(transform.position, player.position);
 

@@ -1,6 +1,4 @@
-using Unity.Mathematics;
 using UnityEngine;
-using static UnityEngine.Rendering.HighDefinition.ProbeSettings;
 
 public class EffectsScript : MonoBehaviour
 {
@@ -48,9 +46,9 @@ public class EffectsScript : MonoBehaviour
         player=Control.gameObject;
         transform.gameObject.SetActive(true);
         RainSpeed = Raintype.Light;
-        RainEmission = RainParticleSystem.GetComponent<ParticleSystem>().emission;
-        RainShape = RainParticleSystem.GetComponent<ParticleSystem>().shape;
-        RainParticleSystem.gameObject.transform.position= new Vector3(player.transform.position.x,transform.position.y,player.transform.position.z);
+        RainParticleSystem.gameObject.transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+        RainEmission = RainParticleSystem.emission;
+        RainShape = RainParticleSystem.shape;
         rainposition = RainParticleSystem.transform.position;
         rainvelocity = new Vector3(player.transform.position.x,0,player.transform.position.y);
         RainObj = RainParticleSystem.gameObject;
