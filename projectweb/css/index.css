@@ -1,0 +1,209 @@
+/* 
+    Created on : 2024. márc. 22., 8:41:25
+    Author     : Dávid
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: Poppins;
+    margin: 0%;
+    padding:0%;
+    color: darkgray;
+}
+.slider{
+    height: 100vh;
+    margin-top: -50px;
+    position: relative;
+}
+.slider .list .item{
+    position: absolute;
+    overflow: hidden;
+    inset: 0 0 0 0;
+    opacity: 0;
+    transition: .5s;
+}
+.slider .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider .list .item::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.slider .list .item .content{
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+}
+.slider .list .item .content a{
+    text-decoration: none;
+    color:darkgray;
+}
+.slider .list .item .content a::before{
+    content: '';
+    position: absolute;
+    transition: .3s;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+}
+.slider .list .item .content a:hover:before{
+    width: 20%;
+}
+.slider .list .item .content p:nth-child(1){
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+.slider .list .item .content h2{
+    font-size: 80px;
+    margin: 0;
+}
+.slider .list .item.active{
+    opacity: 1;
+    z-index: 10;
+}
+@keyframes showContent {
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+.slider .list .item.active p:nth-child(1),
+.slider .list .item.active h2,
+.slider .list .item.active p:nth-child(3){
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s .7s ease-in-out 1 forwards;
+}
+.slider .list .item.active h2{
+    animation-delay: 1s;
+}
+.slider .list .item.active p:nth-child(3){
+    animation-duration: 1.3s;
+}
+.arrows{
+    position: absolute;
+    top: 30%;
+    right: 50px;
+    z-index: 11;
+}
+.arrows button{
+    background-color: #eee5;
+    border: none;
+    font-family: monospace;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: #eee;
+    transition: .5s;
+}
+.arrows button:hover{
+    background-color: #eee;
+    color: black;
+    cursor: pointer;
+}
+.thumbnail{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: right;
+    z-index: 11;
+    overflow: auto;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    gap: 10px;
+    cursor: pointer;
+}
+.thumbnail::-webkit-scrollbar{
+    width: 0;
+    cursor: pointer;
+}
+.thumbnail .item{
+    width: 165px;
+    height: 240px;
+    filter: brightness(.5);
+    transition: .5s;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.thumbnail .item:hover{
+    cursor: pointer;
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.thumbnail .item.active{
+    filter: brightness(1.5);
+    cursor: pointer;
+}
+.thumbnail .item .content{
+    position: absolute;
+    inset: auto 10px 10px 10px;
+    cursor: pointer;
+}
+
+@media only screen and (pointer: coarse) {
+    body{
+        background-color: #C1BEBF;
+    }
+    .slider {
+        height: calc(100vh - 70px);
+        position: relative;
+    }    
+    .slider .list{
+        display: none;
+    }
+    .arrows{
+        display: none;
+    }
+    .thumbnail{
+        padding: 0%;
+        height: 600px;
+        flex-direction: column;
+    }
+    .thumbnail .item img{
+        width: 450px;
+    }  
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .thumbnail{
+        padding: 0%;
+        height: 210px;
+        right: 8px;
+        gap: 5px;
+    }
+    
+    .thumbnail .item{
+        width: 150px;
+        height: 210px;
+        gap: 7px;
+    }
+    .thumbnail .item .content{
+        inset: auto 0px 20px 10px;
+    }
+    
+    .thumbnail .item img{
+        width: 150px;
+        height: 200px;
+    }  
+}
+
