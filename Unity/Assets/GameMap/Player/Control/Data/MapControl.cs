@@ -82,7 +82,7 @@ public class MapControl : MonoBehaviour
         Vector3 spawnPosition = SpawnLocations[numb - 1].position; // Elmentjük a spawn pozíció pozícióját egy változóba
         player.transform.position = spawnPosition+new Vector3(0,5,0); // Beállítjuk a játékos pozícióját a spawn pozícióra
         spawncount = numb;
+        SpawnReferences.Respawnenemy = true;
         mapdisable();
-
     }
 }

@@ -509,6 +509,7 @@
 "Assets/GameMap/UI/SoulShop/Souls.cs"
 "Assets/GameMap/UI/SoulShop/SoulShop.cs"
 "Assets/GameMap/UI/SoulShop/SoulShopItem.cs"
+"Assets/GameMap/UI/SoulShop/TextMove.cs"
 "Assets/network of paths/FirstPersion AIO Pack/FirstPersonAIO/FirstPersonAIO.cs"
 "Assets/Packages/TextMesh Pro/Empty.cs"
 "Assets/Scene/Menu/MainMenu.cs"

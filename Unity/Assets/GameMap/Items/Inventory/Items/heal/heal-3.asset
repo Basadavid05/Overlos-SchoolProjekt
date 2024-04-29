@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: Heal +500
   InventoryPlacement: 1
   stackable: 1
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 80eb1abf180183a4fa6de33070f392b1, type: 3}
   Prefab: {fileID: 919132149155446097, guid: 1011937693c12744ea078a91a6ee07ab, type: 3}
   MaxItem: 20
   DropLocation: {fileID: 0}

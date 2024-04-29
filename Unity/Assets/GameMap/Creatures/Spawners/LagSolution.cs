@@ -49,7 +49,6 @@ public class LagSolution : MonoBehaviour
         {
             OverEnable();
             PlayerwasThere=true;
-
         }
     }
 

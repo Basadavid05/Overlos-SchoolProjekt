@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2519964644545730212}
   - component: {fileID: 1595597593392366645}
   - component: {fileID: 5274520963630950250}
+  - component: {fileID: 3057501862333962820}
   m_Layer: 0
   m_Name: ItemName
   m_TagString: Inventory-Items
@@ -134,6 +135,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3057501862333962820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762822698081331096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01567f315fac651478b6de8c68bda967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  threshold: 7
 --- !u!1 &2163262046871222920
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,8 +372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6baba2cf785224148b4d6530860480c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewPort: {fileID: 0}
-  CartText: {fileID: 0}
+  clicked: 0
+  SoulShopObj: {fileID: 0}
+  item: {fileID: 0}
+  ItemIndex: -1
 --- !u!1 &6816621988061010207
 GameObject:
   m_ObjectHideFlags: 0

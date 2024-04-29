@@ -1,9 +1,5 @@
-using System.Linq;
 using UnityEngine;
 using TMPro;
-using UnityEditor.Rendering;
-using System;
-using UnityEngine.UI;
 
 public class SoulShop : MonoBehaviour
 {
@@ -88,6 +84,14 @@ public class SoulShop : MonoBehaviour
             {
                 Off();
             }
+        }
+
+        if (PlayerDatas.Death)
+        {
+            DeselectItems();
+            SoulShopActive = false;
+            Canvas.SetActive(false);
+            PlayerUI.SetActive(true);
         }
     }
 
