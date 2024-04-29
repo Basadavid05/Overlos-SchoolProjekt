@@ -5,7 +5,7 @@ public class Area : MonoBehaviour
     private Collider Coll;
     private int layerMask;
     private int count;
-    public bool PlayerIsThere;
+    private bool PlayerIsThere;
 
     private void Start()
     {
