@@ -16,8 +16,8 @@ public class ItemDefault : MonoBehaviour
     public bool PickedUp;
 
     [Header("Keys")]
-    public KeyCode PickupKey = KeyCode.E;
-    public KeyCode DropKey = KeyCode.O;
+    public KeyCode PickupKey;
+    public KeyCode DropKey;
 
     [Header("Something")]
     private Item item;
@@ -85,6 +85,10 @@ public class ItemDefault : MonoBehaviour
 
     private void Update()
     {
+        if (Main.main.ChangedHotkeys) { 
+            PickupKey = Main.main.keyMappings[Main.Hotkeys.interract];
+            DropKey = Main.main.keyMappings[Main.Hotkeys.Drop];
+        }
         if (interactable == true)
         {
             if (Input.GetKeyDown(PickupKey) && !ItemPlacement.instance.FullInv)

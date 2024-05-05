@@ -8,6 +8,8 @@ public class InventoryController : MonoBehaviour
     private GameObject Inventory;
     private GameObject InventoryDrop;
 
+    private KeyCode inv;
+
     private void Start()
     {
         InventoryOpen = false;
@@ -21,9 +23,14 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Main.main.ChangedHotkeys)
+        {
+            inv = Main.main.keyMappings[Main.Hotkeys.Inventory];
+        }
+
         if (!PauseMenu.GameIsPause && !MapControl.MapIsEnabled && !SoulShop.SoulShopActive && !PlayerDatas.Death)
         {
-                if (Input.GetKeyDown(KeyCode.I))
+                if (Input.GetKeyDown(inv))
                 {
                     if (InventoryOpen)
                     {

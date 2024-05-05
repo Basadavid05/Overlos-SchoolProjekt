@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MapControl : MonoBehaviour
@@ -32,9 +33,27 @@ public class MapControl : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Scene sceneToUnload = SceneManager.GetSceneByName("Menu");
+        if (sceneToUnload.IsValid())
+        {
+            SceneManager.UnloadSceneAsync("Menu");
+        }
+        Main.main.load = SceneManager.GetActiveScene().buildIndex;
         rb = player.GetComponent<Rigidbody>();
-        PlayerRespawnLocation= spawnmanager.position + new Vector3(0, 2500, 0);
-        mapactive();
+        if (!Main.main.BackToGame)
+        {
+            PlayerRespawnLocation = spawnmanager.position + new Vector3(0, 2500, 0);
+            mapactive();
+        }
+        else
+        {
+            Scene Options = SceneManager.GetSceneByName("Options");
+            if (Options.IsValid())
+            {
+                SceneManager.UnloadSceneAsync("Menu");
+            }
+            Main.main.BackToGame = false;
+        }
     }
 
     // Update is called once per frame

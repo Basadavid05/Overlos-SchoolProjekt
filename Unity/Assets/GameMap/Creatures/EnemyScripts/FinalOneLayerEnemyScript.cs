@@ -177,17 +177,19 @@ public class FinalOneLayerEnemyScript : MonoBehaviour
             ChangeAnimation("stand");
             Speed(1);
             agent.SetDestination(transform.position);
+            transform.LookAt(player);
             fly = true;
         }
         else
         {
             playerWasSeen = true;
             SeeMe(true);
-
+            transform.LookAt(player);
+            /*
             Vector3 targetDirection = player.transform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
+            */
             float distance = Vector3.Distance(transform.position, player.position);
 
             if (distance > Enemy.MinDistance && distance < Enemy.AttackDistance)
@@ -213,7 +215,7 @@ public class FinalOneLayerEnemyScript : MonoBehaviour
             }
 
 
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.U))
             {
                 Debug.Log(distance);
             }

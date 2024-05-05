@@ -23,7 +23,7 @@ public class Sp1 : MonoBehaviour
 
     [Header("Privates")]
     private SpawnReferences SpawnReferences;
-    private Vector3 spawnPosition;
+    [HideInInspector]public Vector3 spawnPosition;
     private Collider Coll;
 
     private GameObject Title;

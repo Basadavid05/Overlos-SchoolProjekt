@@ -8,7 +8,7 @@ public class SoulCounterController : MonoBehaviour
 
     [Header("Souls")]
     private int SoulCounting=-1;
-    public static int SoulCount = 0;
+    public static int SoulCounts = 0;
 
     [Header("Text")]
     private TextMeshProUGUI text;
@@ -26,13 +26,13 @@ public class SoulCounterController : MonoBehaviour
     {
         if (spawn == 0)
         {
-            SoulCount = 0;
+            SoulCounts = 0;
             spawn = 1;
         }
         SoulCounter = transform.GetChild(0).gameObject;
         text= SoulCounter.transform.Find("Count").GetComponent<TextMeshProUGUI>();
         SoulCounter.SetActive(false);
-        text.text = SoulCount+"";
+        text.text = SoulCounts + "";
     }
 
     IEnumerator ShowCanvasForDuration()
@@ -83,7 +83,7 @@ public class SoulCounterController : MonoBehaviour
             isCountingDown = true;
         }
 
-        if (SoulCount > SoulCounting)
+        if (SoulCounts > SoulCounting)
         {
             UpdateCounting();
             Counting++;
@@ -97,9 +97,9 @@ public class SoulCounterController : MonoBehaviour
     public void UpdateCounting()
     {
 
-        SoulCounting = SoulCount;
-        text.text = SoulCount + "";
-        SoulShopCounter.text = SoulCount + "";
+        SoulCounting = SoulCounts;
+        text.text = SoulCounts + "";
+        SoulShopCounter.text = SoulCounts + "";
     }
 }
 

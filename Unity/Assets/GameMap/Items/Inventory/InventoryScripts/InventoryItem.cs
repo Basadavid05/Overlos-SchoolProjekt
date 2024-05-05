@@ -333,11 +333,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
 
     private void Update()
-        {
-        if (Input.GetKeyDown(KeyCode.V)){
-            SoulCounterController.SoulCount += 500;
-        }
-        
+        {       
 
         if (item != null)
         {

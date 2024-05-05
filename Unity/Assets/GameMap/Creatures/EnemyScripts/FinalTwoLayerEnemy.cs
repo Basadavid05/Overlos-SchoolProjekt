@@ -193,6 +193,7 @@ public class FinalTwoLayerEnemy : MonoBehaviour
             ChangeAnimation("stand");
             Speed(1);
             agent.SetDestination(transform.position);
+            transform.LookAt(player);
             ChangeAction("stand");
             fly=true;
         }
@@ -200,10 +201,13 @@ public class FinalTwoLayerEnemy : MonoBehaviour
         {
             playerWasSeen = true;
             SeeMe(true);
+            transform.LookAt(player);
 
+            /*
             Vector3 targetDirection = player.transform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            */
 
             float distance = Vector3.Distance(transform.position, player.position);
 

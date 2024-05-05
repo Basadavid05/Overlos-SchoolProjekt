@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Unity.Collections.LowLevel.Unsafe;
-using UnityEditor.Rendering;
 
 public class PlayerDatas : MonoBehaviour
 {
@@ -23,22 +21,45 @@ public class PlayerDatas : MonoBehaviour
     [Header("Lerp-Health")]
     public float chipspeed = 10f;
 
+    private Main main;
+
+    private int spawn=0;
+    private KeyCode key;
+
     private void Start()
     {
+        if (!main)
+        {
+            main = GameObject.Find("Main").GetComponent<Main>();
+        }
+
         Death = false;
         GetComponent<Rigidbody>().freezeRotation = true;
-        sliders.maxValue= PlayerMaxHealth;
-        PlayerCurrentHealth = PlayerMaxHealth;
-        PlayerHP = PlayerMaxHealth;
-        minTime= 300;
-        maxTime= 420;
-        StartCoroutine(AddSouls());
-
+        if (spawn == 0)
+        {
+            sliders.maxValue = PlayerMaxHealth;
+            PlayerCurrentHealth = PlayerMaxHealth;
+            PlayerHP = PlayerMaxHealth;
+            minTime = 300;
+            maxTime = 420;
+            StartCoroutine(AddSouls());
+            spawn = 1;
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (main.ChangedHotkeys)
+        {
+            key = Main.main.keyMappings[Main.Hotkeys.SoulTestKey];
+        }
+
+        if (Input.GetKeyDown(key))
+        {
+            SoulCounterController.SoulCounts += 200;
+        }
+
         if (PlayerHP!= PlayerCurrentHealth)
         {
             if(PlayerHP > PlayerCurrentHealth)
@@ -105,7 +126,7 @@ public class PlayerDatas : MonoBehaviour
             float time = Timer();
             yield return new WaitForSecondsRealtime(time);
             // Reset timer after 60 seconds
-            SoulCounterController.SoulCount += 50;
+            SoulCounterController.SoulCounts += 50;
         }
     }
 

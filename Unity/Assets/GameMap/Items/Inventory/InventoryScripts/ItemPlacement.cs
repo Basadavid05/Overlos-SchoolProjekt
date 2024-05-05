@@ -10,19 +10,19 @@ public class ItemPlacement : MonoBehaviour
     public static ItemPlacement instance;
 
     [Header("Main-Inventory-Holder")]
-     public List<InventoryItem> Inventorys = new List<InventoryItem>();
+    [HideInInspector] public List<InventoryItem> Inventorys = new List<InventoryItem>();
 
     [Header("Toolbar Inventory Placemets")]
-     public List<Transform> InventoryPlaces = new List<Transform>();
-     public List<Transform> ToolbarPlaces = new List<Transform>();
+    [HideInInspector] public List<Transform> InventoryPlaces = new List<Transform>();
+    [HideInInspector] public List<Transform> ToolbarPlaces = new List<Transform>();
 
     [Header("Toolbar-Slots")]
-     public List<InventoryItem> InventoryItemPlaces = new List<InventoryItem>();
-     public List<ToolbarColor> ToolbarUIPlaces = new List<ToolbarColor>();
-    public Sprite Background;
+     [HideInInspector] public List<InventoryItem> InventoryItemPlaces = new List<InventoryItem>();
+     [HideInInspector] public List<ToolbarColor> ToolbarUIPlaces = new List<ToolbarColor>();
+     public Sprite Background;
 
     [Header("Main-Inventory")]
-    public List<Item> items = new List<Item>();
+    [HideInInspector] public List<Item> items = new List<Item>();
 
     [Header("Replacement")]
     [HideInInspector] public Transform ReplacePlace;

@@ -1,41 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Fps : MonoBehaviour
 {
     private int avgFrameRate;
     private TextMeshProUGUI fps_display_Text;
     private bool active=false;
-
-    public enum FpsTypes
-    {
-        low=64, normal=94, high=124, higher=148,ultra=168, extra=184, ultrafast=244
-    }
-
-    public FpsTypes FpsTarget;
+    private KeyCode key;
 
     private void Start()
     {
-        QualitySettings.vSyncCount = 0;
-        FpsTarget = FpsTypes.ultra;
-        Application.targetFrameRate = (int)FpsTarget;
+
         fps_display_Text =transform.Find("FPS").GetComponent<TextMeshProUGUI>();
         fps_display_Text.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Main.main.ChangedHotkeys)
+        {
+            key = Main.main.keyMappings[Main.Hotkeys.ViewFps];
+        }
+
+        if (Input.GetKeyDown(key))
         {
             active=!active;
             fps_display_Text.gameObject.SetActive(active);
         }
-
-        if (Application.targetFrameRate != (int)FpsTarget)
-            Application.targetFrameRate = (int)FpsTarget;
 
         if (active)
         {

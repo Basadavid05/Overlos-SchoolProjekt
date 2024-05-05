@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class MoveControl : MonoBehaviour
@@ -7,6 +6,7 @@ public class MoveControl : MonoBehaviour
     [Header("Other-Components")]
     private Rigidbody rb;
     private Transform player;
+    private Main main;
 
     [Header("Speed")]
     public float speed;
@@ -19,11 +19,11 @@ public class MoveControl : MonoBehaviour
     private float UnderWaterMoving = 15f;
 
     [Header("Keybind")]
-    [HideInInspector] public KeyCode Sprintkey = KeyCode.LeftShift;
-    [HideInInspector] public KeyCode jumpkey = KeyCode.Space;
-    [HideInInspector] public KeyCode Slidekey = KeyCode.LeftControl;
-    [HideInInspector] public KeyCode Chrouchkey = KeyCode.C;
-    [HideInInspector] public KeyCode IsAltkey = KeyCode.LeftAlt;
+    private KeyCode sprintkey; 
+    private KeyCode jumpkey;
+    private KeyCode slidekey;
+    private KeyCode crouchkey;
+    private KeyCode isaltkey;
 
     [Header("bools")]
     private bool IsTryingToSprinting;
@@ -119,6 +119,7 @@ public class MoveControl : MonoBehaviour
 
     private void DefaultBools()
     {
+        main = GameObject.Find("Main").GetComponent<Main>();
         rb = GetComponent<Rigidbody>();
         Animator = transform.Find("Skin").GetComponent<Animator>();
 
@@ -126,6 +127,8 @@ public class MoveControl : MonoBehaviour
         CeilingCheck = transform.Find("CeilingCheck");
         Center = transform.Find("Center");
         groundCheck = transform.Find("GroundCheck");
+
+        main.ChangedHotkeys = true;
 
         rb.freezeRotation = true;
         readytojump = true;
@@ -154,6 +157,7 @@ public class MoveControl : MonoBehaviour
         ControlDrag();
         SpeedLimiter();
         ControlDrag();
+        StartCoroutine(CheckHotkeyChanges(false));
         if (NoUpperAnimation) { NormalAnimation(); }
     }
 
@@ -167,10 +171,10 @@ public class MoveControl : MonoBehaviour
 
         isnotmoving = (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && isOnGround);
 
-        IsTryingToSprinting = Input.GetKey(Sprintkey);
-        IsTryingToChrouch = Input.GetKey(Chrouchkey);
-        IsTryingToSliding = Input.GetKeyDown(Slidekey);
-        IsAltkeyDown = Input.GetKeyDown(IsAltkey);
+        IsTryingToSprinting = Input.GetKey(sprintkey);
+        IsTryingToChrouch = Input.GetKey(crouchkey);
+        IsTryingToSliding = Input.GetKeyDown(slidekey);
+        IsAltkeyDown = Input.GetKeyDown(isaltkey);
 
         gravity = Physics.gravity.magnitude;
         isOnSlope = HandleSlope();
@@ -185,13 +189,35 @@ public class MoveControl : MonoBehaviour
         {
             SlidingMovement();
         }
-        if(!InWater && !isOnGround)
+
+
+        if (!InWater && !isOnGround)
         {
             /*if (IsFalling())
             {
                 CalculateFallDamage();
             }*/
         }
+    }
+
+    private IEnumerator CheckHotkeyChanges(bool start)
+    {
+        if (main != null && main.keyMappings != null)
+        {
+            if (main.ChangedHotkeys && !start)
+            {
+                sprintkey = main.keyMappings[Main.Hotkeys.Sprint];
+                jumpkey = main.keyMappings[Main.Hotkeys.Jump];
+                slidekey = main.keyMappings[Main.Hotkeys.Slide];
+                crouchkey = main.keyMappings[Main.Hotkeys.Crouch];
+                isaltkey = main.keyMappings[Main.Hotkeys.Alt];
+
+                yield return new WaitForSecondsRealtime(5f);
+
+                main.ChangedHotkeys = false;
+            }
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -255,7 +281,7 @@ public class MoveControl : MonoBehaviour
         }
         else if (PlayerisUnderWater)
         {
-            if(Input.GetKey(Sprintkey))
+            if(Input.GetKey(sprintkey))
             {
                 speed = Mathf.Lerp(speed, UnderWaterMoving, Acceleration * Time.deltaTime);
                 ChangeAnimation("fastswim", false);
@@ -279,7 +305,6 @@ public class MoveControl : MonoBehaviour
         if(!PlayerisUnderWater && !isOnGround && !jumping)
         {
             rb.AddForce(Vector3.down * gravity * rb.mass * 15f);
-            //Debug.Log("s");
         }
         else if(!PlayerisUnderWater && isOnGround && !jumping)
         {
@@ -291,7 +316,8 @@ public class MoveControl : MonoBehaviour
                 }
                 else
                 {
-                    rb.AddForce(Vector3.down * gravity * rb.mass / 3);
+                    rb.AddForce(Vector3.down * gravity);
+                    rb.AddForce(Vector3.up * gravity);
                 }
             }
             else
@@ -525,7 +551,7 @@ public class MoveControl : MonoBehaviour
     private void ToggleCrouch()
     {
 
-        if (Input.GetKeyDown(Chrouchkey))
+        if (Input.GetKeyDown(crouchkey))
         {
             cKeyPressCount++;
         }
@@ -584,11 +610,11 @@ public class MoveControl : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(Slidekey) && (horizontalInput != 0 || verticalInput != 0) && isOnGround)
+        if (Input.GetKeyDown(slidekey) && (horizontalInput != 0 || verticalInput != 0) && isOnGround)
         {
             StartSliding();
         }
-        else if (Input.GetKeyUp(Slidekey) && sliding)
+        else if (Input.GetKeyUp(slidekey) && sliding)
         {
             StopSliding();
         }

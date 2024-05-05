@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scene/Menu.unity
     guid: 4dd04717e4b687b498e9448d91013b6f
   - enabled: 1
-    path: Assets/Scene/Beta.unity
-    guid: 8ca30f3ce40837b4fa1edfdbed58088d
-  - enabled: 1
     path: Assets/Scene/Options.unity
     guid: 2a238ef3dd78f3b4cbc4ebe3227f9dad
+  - enabled: 1
+    path: Assets/Scene/Island.unity
+    guid: 8ca30f3ce40837b4fa1edfdbed58088d
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: bb418abccb518b9488f2831149bb22bd,
       type: 2}

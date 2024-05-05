@@ -131,7 +131,6 @@ public class SoulShop : MonoBehaviour
                 if (enteredText == item.Code)
                 {
                     foundMatch = true;
-                    Debug.Log("Congratulations! Match found.");
                     ItemPlacement.instance.Add(item);
                     GameObject alert = Instantiate(AlertObj, Page2.transform);
                     alert.GetComponent<AlertObj>().CodeActivation(item);
@@ -153,9 +152,9 @@ public class SoulShop : MonoBehaviour
     {
         if (SoulShopPaying != 0)
         {
-            if((SoulCounterController.SoulCount - SoulShopPaying) > 0)
+            if((SoulCounterController.SoulCounts - SoulShopPaying) > 0)
             {
-                SoulCounterController.SoulCount = SoulCounterController.SoulCount - SoulShopPaying;
+                SoulCounterController.SoulCounts = SoulCounterController.SoulCounts - SoulShopPaying;
                 SoulCounterController.UpdateCounting();
                 AddItemsToInventory();
                 DeselectItems();
